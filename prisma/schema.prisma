@@ -43,3 +43,20 @@ model Program {
 
   @@map("programs")
 }
+
+model CuratedTrack {
+  id          String   @id @default(uuid())
+  title       String
+  description String   @db.Text
+  image       String?
+  icon        String?
+  iconWidth   Int      @default(30)
+  iconHeight  Int      @default(30)
+  linkText    String
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("curated_tracks")
+}

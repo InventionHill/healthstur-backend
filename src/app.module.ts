@@ -8,6 +8,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './api/auth/auth.module';
 import { ProgramsModule } from './api/programs/programs.module';
 import { FeaturesModule } from './api/features/features.module';
+import { CuratedTracksModule } from './api/curated-tracks/curated-tracks.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { FeaturesModule } from './api/features/features.module';
     AuthModule,
     ProgramsModule,
     FeaturesModule,
+    CuratedTracksModule,
   ],
   controllers: [AppController],
   providers: [],
