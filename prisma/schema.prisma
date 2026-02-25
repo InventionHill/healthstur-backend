@@ -18,3 +18,25 @@ model User {
 
   @@map("users")
 }
+
+model Program {
+  id          String   @id @default(uuid())
+  name        String
+  icon        String?
+  href            String
+  heading         String
+  subtext         String   @db.Text
+  background      String?
+  homeHeading     String?
+  homeSubtext     String?  @db.Text
+  homeBackground  String?
+  solutionsHeading String?
+  solutionsSubtext String? @db.Text
+  bullets     Json
+  subItems    Json
+  solutions   Json     @default("[]")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("programs")
+}
