@@ -21,8 +21,11 @@ model User {
 
 model Program {
   id          String   @id @default(uuid())
+  isActive    Boolean  @default(true)
+  order       Int      @default(0)
   name        String
   icon        String?
+  iconColor   String?
   href            String
   heading         String
   subtext         String   @db.Text

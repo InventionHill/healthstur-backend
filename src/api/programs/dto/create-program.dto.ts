@@ -3,6 +3,7 @@ import {
   IsNotEmpty,
   IsOptional,
   IsArray,
+  IsBoolean,
   ValidateNested,
 } from 'class-validator';
 import { Type } from 'class-transformer';
@@ -31,6 +32,10 @@ class SolutionDto {
   @IsString()
   @IsOptional()
   image?: string;
+
+  @IsBoolean()
+  @IsOptional()
+  isActive?: boolean;
 }
 
 export class CreateProgramDto {
@@ -41,6 +46,10 @@ export class CreateProgramDto {
   @IsString()
   @IsOptional()
   icon?: string;
+
+  @IsString()
+  @IsOptional()
+  iconColor?: string;
 
   @IsString()
   @IsNotEmpty()
@@ -91,4 +100,8 @@ export class CreateProgramDto {
   @Type(() => SolutionDto)
   @IsOptional()
   solutions?: SolutionDto[];
+
+  @IsBoolean()
+  @IsOptional()
+  isActive?: boolean;
 }

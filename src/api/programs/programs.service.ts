@@ -17,6 +17,7 @@ export class ProgramsService {
         data: {
           name: createProgramDto.name,
           icon: createProgramDto.icon,
+          iconColor: createProgramDto.iconColor,
           href: createProgramDto.href,
           heading: createProgramDto.heading,
           subtext: createProgramDto.subtext,
@@ -29,6 +30,7 @@ export class ProgramsService {
           bullets: createProgramDto.bullets || [],
           subItems: createProgramDto.subItems || [],
           solutions: (createProgramDto.solutions || []) as any,
+          isActive: createProgramDto.isActive ?? true,
         },
       });
     } catch (error: any) {
@@ -38,7 +40,7 @@ export class ProgramsService {
 
   async findAll() {
     return this.prisma.program.findMany({
-      orderBy: { createdAt: 'asc' },
+      orderBy: [{ order: 'asc' }, { createdAt: 'asc' }],
     });
   }
 
@@ -50,6 +52,17 @@ export class ProgramsService {
       throw new NotFoundException(`Program with ID ${id} not found`);
     }
     return program;
+  }
+
+  async reorder(updates: { id: string; order: number }[]) {
+    // We use a transaction to ensure all order updates succeed or fail together
+    const operations = updates.map((update) =>
+      this.prisma.program.update({
+        where: { id: update.id },
+        data: { order: update.order },
+      }),
+    );
+    return this.prisma.$transaction(operations);
   }
 
   async update(id: string, updateProgramDto: UpdateProgramDto) {

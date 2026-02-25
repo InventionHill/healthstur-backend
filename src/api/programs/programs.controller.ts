@@ -57,6 +57,12 @@ export class ProgramsController {
     return this.programsService.findAll();
   }
 
+  @UseGuards(AuthGuard('jwt'))
+  @Put('reorder')
+  reorder(@Body() updates: { id: string; order: number }[]) {
+    return this.programsService.reorder(updates);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.programsService.findOne(id);
