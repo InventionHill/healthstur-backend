@@ -14,6 +14,9 @@ import { TestimonialModule } from './api/testimonial/testimonial.module';
 import { ResourceModule } from './api/resource/resource.module';
 import { ServicesModule } from './api/services/services.module';
 import { CompanyInfoModule } from './api/company-info/company-info.module';
+import { ConsultationsModule } from './api/consultations/consultations.module';
+import { ApplicationsModule } from './api/applications/applications.module';
+import { FeedbackModule } from './api/feedback/feedback.module';
 
 @Module({
   imports: [
@@ -33,6 +36,9 @@ import { CompanyInfoModule } from './api/company-info/company-info.module';
     ResourceModule,
     ServicesModule,
     CompanyInfoModule,
+    ConsultationsModule,
+    ApplicationsModule,
+    FeedbackModule,
   ],
   controllers: [AppController],
   providers: [],

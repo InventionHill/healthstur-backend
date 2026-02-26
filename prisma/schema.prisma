@@ -131,3 +131,47 @@ model CompanyInfo {
 
   @@map("company_info")
 }
+
+model Consultation {
+  id        String   @id @default(uuid())
+  fullName  String
+  email     String
+  contactNo String
+  subject   String
+  message   String   @db.Text
+  createdAt DateTime @default(now())
+
+  @@map("consultations")
+}
+
+model Application {
+  id               String   @id @default(uuid())
+  fullName         String
+  mobileNumber     String
+  email            String?
+  height           String
+  weight           String
+  age              String
+  medicalCondition String?  @db.Text
+  allergies        String?  @db.Text
+  goal             String
+  duration         String
+  routine          String   @db.Text
+  selectedProgram  String?
+  createdAt        DateTime @default(now())
+
+  @@map("applications")
+}
+
+model Feedback {
+  id        String   @id @default(uuid())
+  orderId   String
+  fullName  String
+  email     String
+  subject   String
+  message   String   @db.Text
+  rating    Int
+  createdAt DateTime @default(now())
+
+  @@map("feedback")
+}
