@@ -9,6 +9,7 @@ import { AuthModule } from './api/auth/auth.module';
 import { ProgramsModule } from './api/programs/programs.module';
 import { FeaturesModule } from './api/features/features.module';
 import { CuratedTracksModule } from './api/curated-tracks/curated-tracks.module';
+import { FaqModule } from './api/faq/faq.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { CuratedTracksModule } from './api/curated-tracks/curated-tracks.module'
     ProgramsModule,
     FeaturesModule,
     CuratedTracksModule,
+    FaqModule,
   ],
   controllers: [AppController],
   providers: [],
