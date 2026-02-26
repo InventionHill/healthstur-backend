@@ -20,26 +20,26 @@ model User {
 }
 
 model Program {
-  id          String   @id @default(uuid())
-  isActive    Boolean  @default(true)
-  order       Int      @default(0)
-  name        String
-  icon        String?
-  iconColor   String?
-  href            String
-  heading         String
-  subtext         String   @db.Text
-  background      String?
-  homeHeading     String?
-  homeSubtext     String?  @db.Text
-  homeBackground  String?
+  id               String   @id @default(uuid())
+  isActive         Boolean  @default(true)
+  order            Int      @default(0)
+  name             String
+  icon             String?
+  iconColor        String?
+  href             String
+  heading          String
+  subtext          String   @db.Text
+  background       String?
+  homeHeading      String?
+  homeSubtext      String?  @db.Text
+  homeBackground   String?
   solutionsHeading String?
-  solutionsSubtext String? @db.Text
-  bullets     Json
-  subItems    Json
-  solutions   Json     @default("[]")
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  solutionsSubtext String?  @db.Text
+  bullets          Json
+  subItems         Json
+  solutions        Json     @default("[]")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
   @@map("programs")
 }
@@ -71,4 +71,19 @@ model Faq {
   updatedAt DateTime @updatedAt
 
   @@map("faqs")
+}
+
+model Testimonial {
+  id        String   @id @default(uuid())
+  name      String
+  role      String
+  image     String?
+  quote     String   @db.Text
+  stars     Int      @default(5)
+  isActive  Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("testimonials")
 }
