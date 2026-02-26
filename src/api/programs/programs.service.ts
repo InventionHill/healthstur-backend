@@ -31,6 +31,15 @@ export class ProgramsService {
           subItems: createProgramDto.subItems || [],
           solutions: (createProgramDto.solutions || []) as any,
           isActive: createProgramDto.isActive ?? true,
+
+          isCurated: createProgramDto.isCurated || false,
+          curatedTitle: createProgramDto.curatedTitle,
+          curatedDescription: createProgramDto.curatedDescription,
+          curatedImage: createProgramDto.curatedImage,
+          curatedIcon: createProgramDto.curatedIcon,
+          curatedIconWidth: createProgramDto.curatedIconWidth,
+          curatedIconHeight: createProgramDto.curatedIconHeight,
+          curatedLinkText: createProgramDto.curatedLinkText,
         },
       });
     } catch (error: any) {

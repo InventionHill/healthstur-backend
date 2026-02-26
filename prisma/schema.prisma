@@ -41,25 +41,20 @@ model Program {
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
+  // Curated Track Fields
+  isCurated          Boolean  @default(false)
+  curatedTitle       String?
+  curatedDescription String?  @db.Text
+  curatedImage       String?
+  curatedIcon        String?
+  curatedIconWidth   Int      @default(30)
+  curatedIconHeight  Int      @default(30)
+  curatedLinkText    String?
+
   @@map("programs")
 }
 
-model CuratedTrack {
-  id          String   @id @default(uuid())
-  title       String
-  description String   @db.Text
-  image       String?
-  icon        String?
-  iconWidth   Int      @default(30)
-  iconHeight  Int      @default(30)
-  linkText    String
-  order       Int      @default(0)
-  isActive    Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
 
-  @@map("curated_tracks")
-}
 
 model Faq {
   id        String   @id @default(uuid())

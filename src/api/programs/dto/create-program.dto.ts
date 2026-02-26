@@ -5,6 +5,7 @@ import {
   IsArray,
   IsBoolean,
   ValidateNested,
+  IsNumber,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
@@ -104,4 +105,39 @@ export class CreateProgramDto {
   @IsBoolean()
   @IsOptional()
   isActive?: boolean;
+
+  // Curated Track Fields
+  @IsBoolean()
+  @IsOptional()
+  isCurated?: boolean;
+
+  @IsString()
+  @IsOptional()
+  curatedTitle?: string;
+
+  @IsString()
+  @IsOptional()
+  curatedDescription?: string;
+
+  @IsString()
+  @IsOptional()
+  curatedImage?: string;
+
+  @IsString()
+  @IsOptional()
+  curatedIcon?: string;
+
+  @IsNumber()
+  @IsOptional()
+  @Type(() => Number)
+  curatedIconWidth?: number;
+
+  @IsNumber()
+  @IsOptional()
+  @Type(() => Number)
+  curatedIconHeight?: number;
+
+  @IsString()
+  @IsOptional()
+  curatedLinkText?: string;
 }

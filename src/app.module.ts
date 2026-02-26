@@ -8,7 +8,6 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './api/auth/auth.module';
 import { ProgramsModule } from './api/programs/programs.module';
 import { FeaturesModule } from './api/features/features.module';
-import { CuratedTracksModule } from './api/curated-tracks/curated-tracks.module';
 import { FaqModule } from './api/faq/faq.module';
 import { TestimonialModule } from './api/testimonial/testimonial.module';
 import { ResourceModule } from './api/resource/resource.module';
@@ -30,7 +29,6 @@ import { FeedbackModule } from './api/feedback/feedback.module';
     AuthModule,
     ProgramsModule,
     FeaturesModule,
-    CuratedTracksModule,
     FaqModule,
     TestimonialModule,
     ResourceModule,
