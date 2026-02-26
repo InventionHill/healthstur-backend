@@ -12,6 +12,8 @@ import { CuratedTracksModule } from './api/curated-tracks/curated-tracks.module'
 import { FaqModule } from './api/faq/faq.module';
 import { TestimonialModule } from './api/testimonial/testimonial.module';
 import { ResourceModule } from './api/resource/resource.module';
+import { ServicesModule } from './api/services/services.module';
+import { CompanyInfoModule } from './api/company-info/company-info.module';
 
 @Module({
   imports: [
@@ -29,6 +31,8 @@ import { ResourceModule } from './api/resource/resource.module';
     FaqModule,
     TestimonialModule,
     ResourceModule,
+    ServicesModule,
+    CompanyInfoModule,
   ],
   controllers: [AppController],
   providers: [],

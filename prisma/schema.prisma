@@ -104,3 +104,30 @@ model Resource {
 
   @@map("resources")
 }
+
+model Service {
+  id        String   @id @default(uuid())
+  name      String
+  isActive  Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("services")
+}
+
+model CompanyInfo {
+  id             String   @id @default(uuid())
+  email          String?
+  phone          String?
+  address        String?  @db.Text
+  workingHours   String?
+  facebookUrl    String?
+  instagramUrl   String?
+  twitterUrl     String?
+  youtubeUrl     String?
+  mapUrl         String?  @db.Text
+  updatedAt      DateTime @updatedAt
+
+  @@map("company_info")
+}
