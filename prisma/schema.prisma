@@ -87,3 +87,20 @@ model Testimonial {
 
   @@map("testimonials")
 }
+
+model Resource {
+  id              String   @id @default(uuid())
+  title           String
+  slug            String   @unique
+  heroTitle       String
+  heroDescription String   @db.Text
+  heroImage       String?
+  stepsTitle      String?
+  steps           Json     @default("[]")
+  isActive        Boolean  @default(true)
+  order           Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("resources")
+}
