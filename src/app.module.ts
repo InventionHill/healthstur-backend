@@ -20,6 +20,8 @@ import { RefundPolicyModule } from './api/refund-policy/refund-policy.module';
 import { PrivacyPolicyModule } from './api/privacy-policy/privacy-policy.module';
 import { TermsPolicyModule } from './api/terms-policy/terms-policy.module';
 import { SearchModule } from './api/search/search.module';
+import { SuccessStoryCategoryModule } from './api/success-story-category/success-story-category.module';
+import { SuccessStoryModule } from './api/success-story/success-story.module';
 
 @Module({
   imports: [
@@ -45,6 +47,8 @@ import { SearchModule } from './api/search/search.module';
     PrivacyPolicyModule,
     TermsPolicyModule,
     SearchModule,
+    SuccessStoryCategoryModule,
+    SuccessStoryModule,
   ],
   controllers: [AppController],
   providers: [],

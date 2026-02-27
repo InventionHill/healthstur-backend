@@ -200,3 +200,32 @@ model TermsPolicy {
 
   @@map("terms_policy")
 }
+
+model SuccessStoryCategory {
+  id        String   @id @default(uuid())
+  name      String
+  isActive  Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  stories   SuccessStory[]
+
+  @@map("success_story_categories")
+}
+
+model SuccessStory {
+  id           String   @id @default(uuid())
+  name         String
+  categoryId   String
+  category     SuccessStoryCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  image        String
+  quote        String   @db.Text
+  achievements Json     @default("[]")
+  shift        String   @db.Text
+  isActive     Boolean  @default(true)
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("success_stories")
+}
