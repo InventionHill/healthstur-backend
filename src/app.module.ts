@@ -16,6 +16,9 @@ import { CompanyInfoModule } from './api/company-info/company-info.module';
 import { ConsultationsModule } from './api/consultations/consultations.module';
 import { ApplicationsModule } from './api/applications/applications.module';
 import { FeedbackModule } from './api/feedback/feedback.module';
+import { RefundPolicyModule } from './api/refund-policy/refund-policy.module';
+import { PrivacyPolicyModule } from './api/privacy-policy/privacy-policy.module';
+import { TermsPolicyModule } from './api/terms-policy/terms-policy.module';
 
 @Module({
   imports: [
@@ -37,6 +40,9 @@ import { FeedbackModule } from './api/feedback/feedback.module';
     ConsultationsModule,
     ApplicationsModule,
     FeedbackModule,
+    RefundPolicyModule,
+    PrivacyPolicyModule,
+    TermsPolicyModule,
   ],
   controllers: [AppController],
   providers: [],

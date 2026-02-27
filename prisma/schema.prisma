@@ -170,3 +170,33 @@ model Feedback {
 
   @@map("feedback")
 }
+
+model RefundPolicy {
+  id          String   @id @default(uuid())
+  title       String?
+  description String?  @db.Text
+  content     String   @db.LongText
+  updatedAt   DateTime @updatedAt
+
+  @@map("refund_policy")
+}
+
+model PrivacyPolicy {
+  id          String   @id @default(uuid())
+  title       String?
+  description String?  @db.Text
+  content     String   @db.LongText
+  updatedAt   DateTime @updatedAt
+
+  @@map("privacy_policy")
+}
+
+model TermsPolicy {
+  id          String   @id @default(uuid())
+  title       String?
+  description String?  @db.Text
+  content     String   @db.LongText
+  updatedAt   DateTime @updatedAt
+
+  @@map("terms_policy")
+}
