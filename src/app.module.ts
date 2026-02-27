@@ -22,6 +22,9 @@ import { TermsPolicyModule } from './api/terms-policy/terms-policy.module';
 import { SearchModule } from './api/search/search.module';
 import { SuccessStoryCategoryModule } from './api/success-story-category/success-story-category.module';
 import { SuccessStoryModule } from './api/success-story/success-story.module';
+import { DashboardModule } from './api/dashboard/dashboard.module';
+import { VisitorModule } from './api/visitor/visitor.module';
+import { TrackVisitMiddleware } from './api/visitor/track-visit.middleware';
 
 @Module({
   imports: [
@@ -49,8 +52,14 @@ import { SuccessStoryModule } from './api/success-story/success-story.module';
     SearchModule,
     SuccessStoryCategoryModule,
     SuccessStoryModule,
+    DashboardModule,
+    VisitorModule,
   ],
   controllers: [AppController],
   providers: [],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: import('@nestjs/common').MiddlewareConsumer) {
+    consumer.apply(TrackVisitMiddleware).forRoutes('*');
+  }
+}
