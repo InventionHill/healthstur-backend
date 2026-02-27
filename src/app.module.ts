@@ -19,6 +19,7 @@ import { FeedbackModule } from './api/feedback/feedback.module';
 import { RefundPolicyModule } from './api/refund-policy/refund-policy.module';
 import { PrivacyPolicyModule } from './api/privacy-policy/privacy-policy.module';
 import { TermsPolicyModule } from './api/terms-policy/terms-policy.module';
+import { SearchModule } from './api/search/search.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { TermsPolicyModule } from './api/terms-policy/terms-policy.module';
     RefundPolicyModule,
     PrivacyPolicyModule,
     TermsPolicyModule,
+    SearchModule,
   ],
   controllers: [AppController],
   providers: [],
