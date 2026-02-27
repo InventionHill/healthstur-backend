@@ -25,6 +25,7 @@ import { SuccessStoryModule } from './api/success-story/success-story.module';
 import { DashboardModule } from './api/dashboard/dashboard.module';
 import { VisitorModule } from './api/visitor/visitor.module';
 import { TrackVisitMiddleware } from './api/visitor/track-visit.middleware';
+import { PricingModule } from './api/pricing/pricing.module';
 
 @Module({
   imports: [
@@ -54,6 +55,7 @@ import { TrackVisitMiddleware } from './api/visitor/track-visit.middleware';
     SuccessStoryModule,
     DashboardModule,
     VisitorModule,
+    PricingModule,
   ],
   controllers: [AppController],
   providers: [],

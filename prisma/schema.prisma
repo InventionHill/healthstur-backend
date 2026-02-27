@@ -237,3 +237,37 @@ model Visitor {
 
   @@map("visitors")
 }
+
+model PricingDuration {
+  id        String        @id @default(uuid())
+  name      String
+  order     Int           @default(0)
+  isActive  Boolean       @default(true)
+  plans     PricingPlan[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@map("pricing_durations")
+}
+
+model PricingPlan {
+  id          String          @id @default(uuid())
+  durationId  String
+  duration    PricingDuration @relation(fields: [durationId], references: [id], onDelete: Cascade)
+  name        String
+  description String          @db.Text
+  price       String
+  features    Json            @default("[]")
+  support     Json            @default("[]")
+  positioning Json            @default("[]")
+  icon        String
+  highlighted Boolean         @default(false)
+  buttonText  String          @default("BUY NOW")
+  image       String
+  order       Int             @default(0)
+  isActive    Boolean         @default(true)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@map("pricing_plans")
+}
