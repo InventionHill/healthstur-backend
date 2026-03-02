@@ -43,6 +43,11 @@ export class CreatePlanDto {
   @IsOptional()
   priceEurope?: string;
 
+  @ApiPropertyOptional()
+  @IsString()
+  @IsOptional()
+  priceUk?: string;
+
   @ApiProperty()
   @IsArray()
   features: string[];

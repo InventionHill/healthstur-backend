@@ -30,17 +30,74 @@ class SolutionDto {
   @IsOptional()
   benefits?: string;
 
-  @IsString()
-  @IsNotEmpty()
-  priceIndia: string;
+  @IsArray()
+  @IsString({ each: true })
+  @IsOptional()
+  focusOn?: string[];
 
   @IsString()
-  @IsNotEmpty()
-  priceUsa: string;
+  @IsOptional()
+  priceIndia?: string;
 
   @IsString()
-  @IsNotEmpty()
-  priceEurope: string;
+  @IsOptional()
+  priceUsa?: string;
+
+  @IsString()
+  @IsOptional()
+  priceEurope?: string;
+
+  @IsString()
+  @IsOptional()
+  priceUk?: string;
+
+  @IsString()
+  @IsOptional()
+  price4WeekIndia?: string;
+
+  @IsString()
+  @IsOptional()
+  price8WeekIndia?: string;
+
+  @IsString()
+  @IsOptional()
+  price12WeekIndia?: string;
+
+  @IsString()
+  @IsOptional()
+  price4WeekUsa?: string;
+
+  @IsString()
+  @IsOptional()
+  price8WeekUsa?: string;
+
+  @IsString()
+  @IsOptional()
+  price12WeekUsa?: string;
+
+  @IsString()
+  @IsOptional()
+  price4WeekEurope?: string;
+
+  @IsString()
+  @IsOptional()
+  price8WeekEurope?: string;
+
+  @IsString()
+  @IsOptional()
+  price12WeekEurope?: string;
+
+  @IsString()
+  @IsOptional()
+  price4WeekUk?: string;
+
+  @IsString()
+  @IsOptional()
+  price8WeekUk?: string;
+
+  @IsString()
+  @IsOptional()
+  price12WeekUk?: string;
 
   @IsString()
   @IsOptional()

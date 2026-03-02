@@ -260,6 +260,7 @@ model PricingPlan {
   priceIndia  String?         @default("")
   priceUsa    String?         @default("")
   priceEurope String?         @default("")
+  priceUk     String?         @default("")
   features    Json            @default("[]")
   support     Json            @default("[]")
   positioning Json            @default("[]")
