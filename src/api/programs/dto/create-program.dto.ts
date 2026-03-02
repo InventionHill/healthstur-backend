@@ -6,6 +6,7 @@ import {
   IsBoolean,
   ValidateNested,
   IsNumber,
+  IsObject,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
@@ -35,69 +36,9 @@ class SolutionDto {
   @IsOptional()
   focusOn?: string[];
 
-  @IsString()
+  @IsObject()
   @IsOptional()
-  priceIndia?: string;
-
-  @IsString()
-  @IsOptional()
-  priceUsa?: string;
-
-  @IsString()
-  @IsOptional()
-  priceEurope?: string;
-
-  @IsString()
-  @IsOptional()
-  priceUk?: string;
-
-  @IsString()
-  @IsOptional()
-  price4WeekIndia?: string;
-
-  @IsString()
-  @IsOptional()
-  price8WeekIndia?: string;
-
-  @IsString()
-  @IsOptional()
-  price12WeekIndia?: string;
-
-  @IsString()
-  @IsOptional()
-  price4WeekUsa?: string;
-
-  @IsString()
-  @IsOptional()
-  price8WeekUsa?: string;
-
-  @IsString()
-  @IsOptional()
-  price12WeekUsa?: string;
-
-  @IsString()
-  @IsOptional()
-  price4WeekEurope?: string;
-
-  @IsString()
-  @IsOptional()
-  price8WeekEurope?: string;
-
-  @IsString()
-  @IsOptional()
-  price12WeekEurope?: string;
-
-  @IsString()
-  @IsOptional()
-  price4WeekUk?: string;
-
-  @IsString()
-  @IsOptional()
-  price8WeekUk?: string;
-
-  @IsString()
-  @IsOptional()
-  price12WeekUk?: string;
+  prices?: Record<string, any>;
 
   @IsString()
   @IsOptional()

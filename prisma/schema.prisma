@@ -257,10 +257,7 @@ model PricingPlan {
   name        String
   description String          @db.Text
   price       String
-  priceIndia  String?         @default("")
-  priceUsa    String?         @default("")
-  priceEurope String?         @default("")
-  priceUk     String?         @default("")
+  prices      Json            @default("{}")
   features    Json            @default("[]")
   support     Json            @default("[]")
   positioning Json            @default("[]")
@@ -274,4 +271,17 @@ model PricingPlan {
   updatedAt   DateTime        @updatedAt
 
   @@map("pricing_plans")
+}
+
+model Country {
+  id             String   @id @default(uuid())
+  name           String   @unique
+  currencyCode   String
+  currencySymbol String
+  flag           String
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("countries")
 }

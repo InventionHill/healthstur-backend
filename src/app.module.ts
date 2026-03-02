@@ -26,6 +26,7 @@ import { DashboardModule } from './api/dashboard/dashboard.module';
 import { VisitorModule } from './api/visitor/visitor.module';
 import { TrackVisitMiddleware } from './api/visitor/track-visit.middleware';
 import { PricingModule } from './api/pricing/pricing.module';
+import { CountriesModule } from './api/countries/countries.module';
 
 @Module({
   imports: [
@@ -56,6 +57,7 @@ import { PricingModule } from './api/pricing/pricing.module';
     DashboardModule,
     VisitorModule,
     PricingModule,
+    CountriesModule,
   ],
   controllers: [AppController],
   providers: [],

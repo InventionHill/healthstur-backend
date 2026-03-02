@@ -4,6 +4,7 @@ import {
   IsBoolean,
   IsOptional,
   IsArray,
+  IsObject,
 } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
@@ -29,24 +30,9 @@ export class CreatePlanDto {
   price: string;
 
   @ApiPropertyOptional()
-  @IsString()
+  @IsObject()
   @IsOptional()
-  priceIndia?: string;
-
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  priceUsa?: string;
-
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  priceEurope?: string;
-
-  @ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  priceUk?: string;
+  prices?: Record<string, string>;
 
   @ApiProperty()
   @IsArray()
