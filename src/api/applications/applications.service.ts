@@ -39,8 +39,7 @@ export class ApplicationsService {
           // Return only the order ID for the frontend to initialize Checkout.
           // DO NOT SAVE to the database yet.
           return { razorpayOrderId: order.id };
-        } catch (error) {
-          console.error('Failed to create Razorpay order:', error);
+        } catch (error: any) {
           throw new BadRequestException(
             error?.error?.description || 'Failed to create payment order',
           );
@@ -94,7 +93,7 @@ export class ApplicationsService {
     });
 
     // Fire off async email/invoice generation
-    this.generateAndSendInvoice(newApplication).catch(console.error);
+    this.generateAndSendInvoice(newApplication).catch(() => {});
 
     return { success: true, application: newApplication };
   }
@@ -193,7 +192,6 @@ export class ApplicationsService {
 
       return Buffer.from(pdfBuffer);
     } catch (err: any) {
-      console.error('PDF Generation Error:', err);
       throw new BadRequestException('PDF Generation failed: ' + err.message);
     }
   }
@@ -239,15 +237,10 @@ export class ApplicationsService {
               },
             ],
           });
-          console.log(`Invoice emailed to ${application.email}`);
-        } else {
-          console.log(
-            'SMTP not fully configured, invoice generated but not emailed.',
-          );
         }
       }
     } catch (err) {
-      console.error('Failed to generate or send invoice:', err);
+      // Ignore
     }
   }
 
@@ -296,7 +289,6 @@ export class ApplicationsService {
 
       return { success: true, application: updatedApp };
     } catch (err: any) {
-      console.error('Failed to process Razorpay refund:', err);
       throw new BadRequestException(
         `Refund Failed: ${err?.error?.description || err.message || 'Unknown error'}`,
       );

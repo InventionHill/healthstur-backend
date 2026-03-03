@@ -13,9 +13,7 @@ export class TrackVisitMiddleware implements NestMiddleware {
     const userAgent = req.headers['user-agent'];
 
     // Track visit asynchronously (don't block the request)
-    this.visitorService.track(ip, userAgent).catch((err) => {
-      console.error('Failed to track visitor:', err);
-    });
+    this.visitorService.track(ip, userAgent).catch(() => {});
 
     next();
   }

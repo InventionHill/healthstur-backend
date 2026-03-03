@@ -18,16 +18,12 @@ async function main() {
         where: { id: country.id },
         data: { currencyCode: map[country.currencyCode] },
       });
-      console.log(
-        `Updated ${country.name} from ${country.currencyCode} to ${map[country.currencyCode]}`,
-      );
     }
   }
 }
 
 main()
-  .catch((e) => {
-    console.error(e);
+  .catch(() => {
     process.exit(1);
   })
   .finally(async () => {

@@ -30,7 +30,7 @@ export class AuthService {
     const payload = { email: user.email, sub: user.id, role: user.role };
     const accessToken = this.jwtService.sign(payload);
     const refreshToken = this.jwtService.sign(payload, { expiresIn: '7d' });
-    
+
     return {
       accessToken,
       refreshToken,
@@ -49,7 +49,7 @@ export class AuthService {
     });
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password, ...result } = user;
-    
+
     // Generate token immediately
     const payload = { email: result.email, sub: result.id, role: result.role };
     const accessToken = this.jwtService.sign(payload);
