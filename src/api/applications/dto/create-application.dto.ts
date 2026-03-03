@@ -48,4 +48,12 @@ export class CreateApplicationDto {
   @IsString()
   @IsOptional()
   selectedProgram?: string;
+
+  @IsString()
+  @IsOptional()
+  amount?: string;
+
+  @IsString()
+  @IsOptional()
+  currency?: string;
 }

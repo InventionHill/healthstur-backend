@@ -153,6 +153,13 @@ model Application {
   duration         String
   routine          String   @db.Text
   selectedProgram  String?
+  paymentStatus    String   @default("PENDING")
+  razorpayOrderId  String?
+  razorpayPaymentId String?
+  razorpayRefundId String?
+  refundDetails    Json?
+  amount           String?
+  currency         String?
   createdAt        DateTime @default(now())
 
   @@map("applications")

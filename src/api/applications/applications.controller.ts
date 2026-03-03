@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Res,
+} from '@nestjs/common';
+import { Response } from 'express';
 import { ApplicationsService } from './applications.service';
 import { CreateApplicationDto } from './dto/create-application.dto';
 
@@ -11,9 +20,30 @@ export class ApplicationsController {
     return this.applicationsService.create(createApplicationDto);
   }
 
+  @Post(':id/refund')
+  refund(@Param('id') id: string) {
+    return this.applicationsService.refund(id);
+  }
+
+  @Post('verify-payment')
+  verifyPayment(@Body() body: any) {
+    return this.applicationsService.verifyPayment(body);
+  }
+
   @Get()
   findAll() {
     return this.applicationsService.findAll();
+  }
+
+  @Get(':id/invoice')
+  async downloadInvoice(@Param('id') id: string, @Res() res: Response) {
+    const buffer = await this.applicationsService.generateInvoicePdf(id);
+    res.set({
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': `attachment; filename=invoice-${id}.pdf`,
+      'Content-Length': buffer.length,
+    });
+    res.end(buffer);
   }
 
   @Get(':id')
