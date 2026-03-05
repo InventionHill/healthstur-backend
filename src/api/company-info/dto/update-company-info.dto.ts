@@ -36,4 +36,20 @@ export class UpdateCompanyInfoDto {
   @IsString()
   @IsOptional()
   workingHours?: string;
+
+  @IsString()
+  @IsOptional()
+  founderQuote?: string;
+
+  @IsString()
+  @IsOptional()
+  founderName?: string;
+
+  @IsString()
+  @IsOptional()
+  founderDesignation?: string;
+
+  @IsString()
+  @IsOptional()
+  founderImage?: string;
 }
