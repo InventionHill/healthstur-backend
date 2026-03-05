@@ -7,6 +7,7 @@ import {
   ValidateNested,
   IsNumber,
   IsObject,
+  ValidateIf,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
@@ -121,33 +122,40 @@ export class CreateProgramDto {
   @IsOptional()
   isCurated?: boolean;
 
+  @ValidateIf((o) => o.isCurated === true)
   @IsString()
-  @IsOptional()
+  @IsNotEmpty()
   curatedTitle?: string;
 
+  @ValidateIf((o) => o.isCurated === true)
   @IsString()
-  @IsOptional()
+  @IsNotEmpty()
   curatedDescription?: string;
 
+  @ValidateIf((o) => o.isCurated === true)
   @IsString()
-  @IsOptional()
+  @IsNotEmpty()
   curatedImage?: string;
 
+  @ValidateIf((o) => o.isCurated === true)
   @IsString()
-  @IsOptional()
+  @IsNotEmpty()
   curatedIcon?: string;
 
+  @ValidateIf((o) => o.isCurated === true)
   @IsNumber()
-  @IsOptional()
+  @IsNotEmpty()
   @Type(() => Number)
   curatedIconWidth?: number;
 
+  @ValidateIf((o) => o.isCurated === true)
   @IsNumber()
-  @IsOptional()
+  @IsNotEmpty()
   @Type(() => Number)
   curatedIconHeight?: number;
 
+  @ValidateIf((o) => o.isCurated === true)
   @IsString()
-  @IsOptional()
+  @IsNotEmpty()
   curatedLinkText?: string;
 }

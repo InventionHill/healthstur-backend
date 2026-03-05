@@ -122,6 +122,10 @@ model CompanyInfo {
   twitterUrl     String?
   youtubeUrl     String?
   mapUrl         String?  @db.Text
+  founderQuote   String?  @db.LongText
+  founderName    String?
+  founderDesignation String?
+  founderImage   String?
   updatedAt      DateTime @updatedAt
 
   @@map("company_info")
