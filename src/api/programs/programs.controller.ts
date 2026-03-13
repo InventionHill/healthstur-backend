@@ -35,7 +35,7 @@ export class ProgramsController {
   @UseInterceptors(
     FileInterceptor('file', {
       storage: diskStorage({
-        destination: './uploads',
+        destination: './public',
         filename: (req, file, cb) => {
           const uniqueSuffix = uuidv4() + extname(file.originalname);
           cb(null, uniqueSuffix);
@@ -48,7 +48,7 @@ export class ProgramsController {
       throw new BadRequestException('No file uploaded');
     }
     return {
-      url: `/uploads/${file.filename}`,
+      url: `/public/${file.filename}`,
     };
   }
 

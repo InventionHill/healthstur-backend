@@ -33,8 +33,8 @@ import { CountriesModule } from './api/countries/countries.module';
     LoggerModule.forRoot(),
     ConfigModule.forRoot({ isGlobal: true }),
     ServeStaticModule.forRoot({
-      rootPath: join(process.cwd(), 'uploads'),
-      serveRoot: '/uploads',
+      rootPath: join(process.cwd(), 'public'),
+      serveRoot: '/public',
     }),
     PrismaModule,
     AuthModule,

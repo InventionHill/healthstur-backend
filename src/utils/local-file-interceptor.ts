@@ -12,7 +12,7 @@ export function LocalFileFieldsInterceptor(
     baseDest?: string;
   } = {},
 ) {
-  const baseDest = options.baseDest || './uploads';
+  const baseDest = options.baseDest || './public';
 
   const storage = diskStorage({
     destination: (req, file, cb) => {
