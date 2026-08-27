@@ -35,5 +35,5 @@ COPY --from=build /app/dist ./dist
 # Expose port
 EXPOSE 8000
 
-# Run Prisma migrations and start the app
-CMD ["sh", "-c", "pnpm prisma migrate deploy && pnpm start:prod"]
+# Start the blank service without touching the database
+CMD ["pnpm", "start:prod"]
