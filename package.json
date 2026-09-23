@@ -1,6 +1,6 @@
 {
   "name": "healthstur-backend",
-  "version": "0.0.0",
+  "version": "0.0.1-shutdown",
   "private": true,
   "scripts": {
     "build": "node --check src/main.js",
